@@ -216,7 +216,7 @@ gene data.</p>
 <p>The routines are used in the <a class="reference internal" href="ClearMap.Scripts.CellMap.html#module-ClearMap.Scripts.CellMap" title="ClearMap.Scripts.CellMap"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ClearMap.Scripts.CellMap</span></code></a> pipeline.</p>
 <dl class="function">
 <dt id="ClearMap.ImageProcessing.Experts.Cells.detect_cells">
-<code class="sig-name descname">detect_cells</code><span class="sig-paren">(</span><em class="sig-param">source, sink=None, cell_detection_parameter={'background_correction': {'form': 'Disk', 'save': False, 'shape': (7, 7)}, 'dog_filter': {'shape': None, 'sigma': None, 'sigma2': None}, 'equalization': None, 'intensity_detection': {'measure': ['source', 'background'], 'method': 'max', 'shape': 3}, 'iullumination_correction': {'flatfield': None, 'scaling': 'mean'}, 'maxima_detection': {'h_max': None, 'save': False, 'shape': 5, 'threshold': 0, 'valid': True}, 'shape_detection': {'save': False, 'threshold': 700}}, processing_parameter={'axes': [2], 'optimization': True, 'optimization_fix': 'all', 'overlap': 32, 'processes': None, 'size_max': 100, 'size_min': 50, 'verbose': None}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ClearMap/ImageProcessing/Experts/Cells.html#detect_cells"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ClearMap.ImageProcessing.Experts.Cells.detect_cells" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">detect_cells</code><span class="sig-paren">(</span><em class="sig-param">source, sink=None, cell_detection_parameter={'background_correction': {'form': 'Disk', 'save': False, 'shape': (7, 7)}, 'dog_filter': {'shape': None, 'sigma': None, 'sigma2': None}, 'equalization': None, 'intensity_detection': {'measure': ['source', 'background'], 'method': 'max', 'shape': 3}, 'illumination_correction': {'flatfield': None, 'scaling': 'mean'}, 'maxima_detection': {'h_max': None, 'save': False, 'shape': 5, 'threshold': 0, 'valid': True}, 'shape_detection': {'save': False, 'threshold': 700}}, processing_parameter={'axes': [2], 'optimization': True, 'optimization_fix': 'all', 'overlap': 32, 'processes': None, 'size_max': 100, 'size_min': 50, 'verbose': None}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ClearMap/ImageProcessing/Experts/Cells.html#detect_cells"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ClearMap.ImageProcessing.Experts.Cells.detect_cells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cell detection pipeline.</p>
 <p class="rubric">Arguments</p>
 <dl class="simple">
@@ -227,7 +227,7 @@ gene data.</p>
 <dt>cell_detection_parameter<span class="classifier">dict</span></dt><dd><p>Parameter for the binarization. See below for details.</p>
 </dd>
 <dt>processing_parameter<span class="classifier">dict</span></dt><dd><p>Parameter for the parallel processing.
-See <code class="xref py py-func docutils literal notranslate"><span class="pre">ClearMap.ParallelProcessing.BlockProcesing.process()</span></code> for
+See <code class="xref py py-func docutils literal notranslate"><span class="pre">ClearMap.ParallelProcessing.BlockProcessing.process()</span></code> for
 description of all the parameter.</p>
 </dd>
 <dt>verbose<span class="classifier">bool</span></dt><dd><p>If True, print progress output.</p>
@@ -278,10 +278,10 @@ the result of that step to a file to inspect the pipeline.</p></li>
 <dl>
 <dt>background_correction<span class="classifier">dict or None</span></dt><dd><p>Background removal step parameter.</p>
 <dl class="simple">
-<dt>shape<span class="classifier">tuple</span></dt><dd><p>The shape of the structure lement to estimate the background.
+<dt>shape<span class="classifier">tuple</span></dt><dd><p>The shape of the structure element to estimate the background.
 This should be larger than the typical cell size.</p>
 </dd>
-<dt>form<span class="classifier">str</span></dt><dd><p>The form of the structur element (e.g. ‘Disk’)</p>
+<dt>form<span class="classifier">str</span></dt><dd><p>The form of the structure element (e.g. ‘Disk’)</p>
 </dd>
 <dt>save<span class="classifier">str or None</span></dt><dd><p>Save the result of this step to the specified file if not None.</p>
 </dd>
@@ -293,7 +293,7 @@ This should be larger than the typical cell size.</p>
 <dt>equalization<span class="classifier">dict or None</span></dt><dd><p>Equalization step parameter.
 See also <a class="reference internal" href="ClearMap.ImageProcessing.LocalStatistics.html#ClearMap.ImageProcessing.LocalStatistics.local_percentile" title="ClearMap.ImageProcessing.LocalStatistics.local_percentile"><code class="xref py py-func docutils literal notranslate"><span class="pre">ClearMap.ImageProcessing.LocalStatistics.local_percentile()</span></code></a></p>
 <dl class="simple">
-<dt>precentile<span class="classifier">tuple</span></dt><dd><p>The lower and upper percentiles used to estimate the equalization.
+<dt>percentile<span class="classifier">tuple</span></dt><dd><p>The lower and upper percentiles used to estimate the equalization.
 The lower percentile is used for normalization, the upper to limit the
 maximal boost to a maximal intensity above this percentile.</p>
 </dd>
@@ -305,7 +305,7 @@ Should be larger than the larger vessels.</p>
 <dt>spacing<span class="classifier">tuple</span></dt><dd><p>The spacing used to move the structural elements.
 Larger spacings speed up processing but become locally less precise.</p>
 </dd>
-<dt>interpolate<span class="classifier">int</span></dt><dd><p>The order of the interpoltation used in constructing the full
+<dt>interpolate<span class="classifier">int</span></dt><dd><p>The order of the interpolation used in constructing the full
 background estimate in case a non-trivial spacing is used.</p>
 </dd>
 <dt>save<span class="classifier">str or None</span></dt><dd><p>Save the result of this step to the specified file if not None.</p>
@@ -321,10 +321,10 @@ background estimate in case a non-trivial spacing is used.</p>
 This should be near the typical cell size.</p>
 </dd>
 <dt>sigma<span class="classifier">tuple or None</span></dt><dd><p>The std of the inner Gaussian.
-If None, detemined automatically from shape.</p>
+If None, determined automatically from shape.</p>
 </dd>
 <dt>sigma2<span class="classifier">tuple or None</span></dt><dd><p>The std of the outer Gaussian.
-If None, detemined automatically from shape.</p>
+If None, determined automatically from shape.</p>
 </dd>
 <dt>save<span class="classifier">str or None</span></dt><dd><p>Save the result of this step to the specified file if not None.</p>
 </dd>
@@ -336,7 +336,7 @@ If None, detemined automatically from shape.</p>
 <dt>maxima_detection<span class="classifier">dict or None</span></dt><dd><p>Extended maxima detection step parameter.</p>
 <dl class="simple">
 <dt>h_max<span class="classifier">float or None</span></dt><dd><p>The ‘height’for the extended maxima.
-If None, simple local maxima detection isused.</p>
+If None, simple local maxima detection is used.</p>
 </dd>
 <dt>shape<span class="classifier">tuple</span></dt><dd><p>The shape of the structural element for extended maxima detection.
 This should be near the typical cell size.</p>
@@ -356,7 +356,7 @@ overlap.</p>
 <dl>
 <dt>shape_detection<span class="classifier">dict or None</span></dt><dd><p>Shape detection step parameter.</p>
 <dl class="simple">
-<dt>threshold<span class="classifier">float</span></dt><dd><p>Cell shape is expanded from maxima if pixles are above this threshold
+<dt>threshold<span class="classifier">float</span></dt><dd><p>Cell shape is expanded from maxima if pixels are above this threshold
 and not closer to another maxima.</p>
 </dd>
 <dt>save<span class="classifier">str or None</span></dt><dd><p>Save the result of this step to the specified file if not None.</p>
@@ -385,7 +385,7 @@ the cell intensity.</p>
 
 <dl class="function">
 <dt id="ClearMap.ImageProcessing.Experts.Cells.detect_cells_block">
-<code class="sig-name descname">detect_cells_block</code><span class="sig-paren">(</span><em class="sig-param">source, parameter={'background_correction': {'form': 'Disk', 'save': False, 'shape': (7, 7)}, 'dog_filter': {'shape': None, 'sigma': None, 'sigma2': None}, 'equalization': None, 'intensity_detection': {'measure': ['source', 'background'], 'method': 'max', 'shape': 3}, 'iullumination_correction': {'flatfield': None, 'scaling': 'mean'}, 'maxima_detection': {'h_max': None, 'save': False, 'shape': 5, 'threshold': 0, 'valid': True}, 'shape_detection': {'save': False, 'threshold': 700}}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ClearMap/ImageProcessing/Experts/Cells.html#detect_cells_block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ClearMap.ImageProcessing.Experts.Cells.detect_cells_block" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">detect_cells_block</code><span class="sig-paren">(</span><em class="sig-param">source, parameter={'background_correction': {'form': 'Disk', 'save': False, 'shape': (7, 7)}, 'dog_filter': {'shape': None, 'sigma': None, 'sigma2': None}, 'equalization': None, 'intensity_detection': {'measure': ['source', 'background'], 'method': 'max', 'shape': 3}, 'illumination_correction': {'flatfield': None, 'scaling': 'mean'}, 'maxima_detection': {'h_max': None, 'save': False, 'shape': 5, 'threshold': 0, 'valid': True}, 'shape_detection': {'save': False, 'threshold': 700}}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ClearMap/ImageProcessing/Experts/Cells.html#detect_cells_block"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ClearMap.ImageProcessing.Experts.Cells.detect_cells_block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detect cells in a Block.</p>
 </dd></dl>
 
@@ -434,8 +434,8 @@ None or a minimal and maximal threshold value.</p>
 
 <dl class="data">
 <dt id="ClearMap.ImageProcessing.Experts.Cells.default_cell_detection_parameter">
-<code class="sig-name descname">default_cell_detection_parameter</code><em class="property"> = {'background_correction': {'form': 'Disk', 'save': False, 'shape': (7, 7)}, 'dog_filter': {'shape': None, 'sigma': None, 'sigma2': None}, 'equalization': None, 'intensity_detection': {'measure': ['source', 'background'], 'method': 'max', 'shape': 3}, 'iullumination_correction': {'flatfield': None, 'scaling': 'mean'}, 'maxima_detection': {'h_max': None, 'save': False, 'shape': 5, 'threshold': 0, 'valid': True}, 'shape_detection': {'save': False, 'threshold': 700}}</em><a class="headerlink" href="#ClearMap.ImageProcessing.Experts.Cells.default_cell_detection_parameter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parameter for the cell detectrion pipeline.
+<code class="sig-name descname">default_cell_detection_parameter</code><em class="property"> = {'background_correction': {'form': 'Disk', 'save': False, 'shape': (7, 7)}, 'dog_filter': {'shape': None, 'sigma': None, 'sigma2': None}, 'equalization': None, 'intensity_detection': {'measure': ['source', 'background'], 'method': 'max', 'shape': 3}, 'illumination_correction': {'flatfield': None, 'scaling': 'mean'}, 'maxima_detection': {'h_max': None, 'save': False, 'shape': 5, 'threshold': 0, 'valid': True}, 'shape_detection': {'save': False, 'threshold': 700}}</em><a class="headerlink" href="#ClearMap.ImageProcessing.Experts.Cells.default_cell_detection_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameter for the cell detection pipeline.
 See <a class="reference internal" href="#ClearMap.ImageProcessing.Experts.Cells.detect_cells" title="ClearMap.ImageProcessing.Experts.Cells.detect_cells"><code class="xref py py-func docutils literal notranslate"><span class="pre">detect_cells()</span></code></a> for details.</p>
 </dd></dl>
 

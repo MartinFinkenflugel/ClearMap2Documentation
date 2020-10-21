@@ -226,7 +226,7 @@ The routines are used in the <a class="reference internal" href="ClearMap.Script
 <dt>binarization_parameter<span class="classifier">dict</span></dt><dd><p>Parameter for the binarization. See below for details.</p>
 </dd>
 <dt>processing_parameter<span class="classifier">dict</span></dt><dd><p>Parameter for the parallel processing.
-See <code class="xref py py-func docutils literal notranslate"><span class="pre">ClearMap.ParallelProcessing.BlockProcesing.process()</span></code> for
+See <code class="xref py py-func docutils literal notranslate"><span class="pre">ClearMap.ParallelProcessing.BlockProcessing.process()</span></code> for
 description of all the parameter.</p>
 </dd>
 <dt>verbose<span class="classifier">bool</span></dt><dd><p>If True, print progress output.</p>
@@ -306,7 +306,7 @@ processing but become less local estimates.</p>
 the structural element using larger than single voxel steps.</p>
 <p>For the vasculature a typical value is (2,2,1).</p>
 </dd>
-<dt>interpolate<span class="classifier">int</span></dt><dd><p>The order of the interpoltation used in constructing the full
+<dt>interpolate<span class="classifier">int</span></dt><dd><p>The order of the interpolation used in constructing the full
 background estimate in case a non-trivial spacing is used.</p>
 <p>For the vasculature a typical value is 1.</p>
 </dd>
@@ -367,7 +367,7 @@ Should be larger than the larger vessels.</p>
 Larger spacings speed up processing but become locally less precise.</p>
 <p>For the vasculature a typical value is (50,50,5)</p>
 </dd>
-<dt>interpolate<span class="classifier">int</span></dt><dd><p>The order of the interpoltation used in constructing the full
+<dt>interpolate<span class="classifier">int</span></dt><dd><p>The order of the interpolation used in constructing the full
 background estimate in case a non-trivial spacing is used.</p>
 <p>For the vasculature a typical value is 1.</p>
 </dd>
@@ -381,7 +381,7 @@ background estimate in case a non-trivial spacing is used.</p>
 <dt>equalize<span class="classifier">dict or None</span></dt><dd><p>Equalization step parameter.
 See also <a class="reference internal" href="ClearMap.ImageProcessing.LocalStatistics.html#ClearMap.ImageProcessing.LocalStatistics.local_percentile" title="ClearMap.ImageProcessing.LocalStatistics.local_percentile"><code class="xref py py-func docutils literal notranslate"><span class="pre">ClearMap.ImageProcessing.LocalStatistics.local_percentile()</span></code></a></p>
 <dl>
-<dt>precentile<span class="classifier">tuple</span></dt><dd><p>The lower and upper percentiles used to estimate the equalization.
+<dt>percentile<span class="classifier">tuple</span></dt><dd><p>The lower and upper percentiles used to estimate the equalization.
 The lower percentile is used for normalization, the upper to limit the
 maximal boost to a maximal intensity above this percentile.</p>
 <p>For the vasculature a typical value is (0.4, 0.975).</p>
@@ -397,7 +397,7 @@ Should be larger than the larger vessels.</p>
 Larger spacings speed up processing but become locally less precise.</p>
 <p>For the vasculature a typical value is (50,50,5)</p>
 </dd>
-<dt>interpolate<span class="classifier">int</span></dt><dd><p>The order of the interpoltation used in constructing the full
+<dt>interpolate<span class="classifier">int</span></dt><dd><p>The order of the interpolation used in constructing the full
 background estimate in case a non-trivial spacing is used.</p>
 <p>For the vasculature a typical value is 1.</p>
 </dd>

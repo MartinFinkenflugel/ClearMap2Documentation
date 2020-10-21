@@ -1,7 +1,7 @@
 CellMap
 =======
 
-This pipeine implements the cell detection and analysis done in [Renier2016]_.
+This pipeline implements the cell detection and analysis done in [Renier2016]_.
 
 See the :ref:`CellMap tutorial </CellMap.ipynb>` for usage.
 
@@ -114,18 +114,18 @@ to increase the contrast of the relevant objects for other experiments.
 Maxima detection
 ^^^^^^^^^^^^^^^^
 
-In this step potentiall cell centers are detect by finding local maxima
+In this step potential cell centers are detect by finding local maxima
 in the pre-processed images. 
 
 The maxima detection can have an optional extended maxima filter (via
-an h-transform) usefull for objects that contain several peaks of intensity,
+an h-transform) useful for objects that contain several peaks of intensity,
 for instance, higher resolution views of a cell nuclei with granular texture. 
 
 
 Cell shape detection
 ^^^^^^^^^^^^^^^^^^^^
 
-The cell shape detection can be used to measure the volmues of the detected 
+The cell shape detection can be used to measure the volumes of the detected
 cells. This can help to remove local peaks that do not correspond to an actual 
 cell.
 
@@ -138,7 +138,7 @@ Cell intensity measurements
 
 This part of the pipeline allows to measure various expression levels and 
 intensities given the cell centers or shape. Different methods
-can be used to calculate the intensity in an extened cell shape (e..g max, min,
+can be used to calculate the intensity in an extended cell shape (e..g max, min,
 mean etc.).
 
 

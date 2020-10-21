@@ -548,7 +548,7 @@ auto_to_reference: no file
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is important that the alignment template and annotation file match the field of view of your acquisition. By default, they cover the whole brain, but if you acquired a smaller region of the brain (for instance only one hemisphere), you need to prepare new versions of these files to match the coverage of the brain from your acquisition. Also, the orientation in space of these images in these files needs to match the orientation of the brain during your acquisition. The original file themselves
-are located in the ‘ClearMap/Ressources/Atlas’ folder and cropped files will be stored there as well.</p>
+are located in the ‘ClearMap/Resources/Atlas’ folder and cropped files will be stored there as well.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -678,13 +678,13 @@ Preparing: &#39;/home/ckirst/Programs/ClearMap2/ClearMap/Resources/Atlas/ABA_25u
 </div>
 <div class="section" id="Data-conversion">
 <h2>Data conversion<a class="headerlink" href="#Data-conversion" title="Permalink to this headline">¶</a></h2>
-<p>To speed up processing it can be usefull to first convert the microscope data to a numpy binary file. This step is not neccesary though.</p>
+<p>To speed up processing it can be useful to first convert the microscope data to a numpy binary file. This step is not neccesary though.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#%% Convet raw data to npy file</span>
+<span></span><span class="c1">#%% Convert raw data to npy file</span>
 
 <span class="n">source</span> <span class="o">=</span> <span class="n">ws</span><span class="o">.</span><span class="n">source</span><span class="p">(</span><span class="s1">&#39;raw&#39;</span><span class="p">);</span>
 <span class="n">sink</span>   <span class="o">=</span> <span class="n">ws</span><span class="o">.</span><span class="n">filename</span><span class="p">(</span><span class="s1">&#39;stitched&#39;</span><span class="p">)</span>
@@ -860,7 +860,7 @@ alignment is good, you are then ready for the image processing steps.</p>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#%% Crop test data</span>
 
-<span class="c1">#select sublice for testing the pipeline</span>
+<span class="c1">#select subslice for testing the pipeline</span>
 <span class="n">slicing</span> <span class="o">=</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2200</span><span class="p">),</span><span class="nb">slice</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2200</span><span class="p">),</span><span class="nb">slice</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">80</span><span class="p">));</span>
 <span class="n">ws</span><span class="o">.</span><span class="n">create_debug</span><span class="p">(</span><span class="s1">&#39;stitched&#39;</span><span class="p">,</span> <span class="n">slicing</span><span class="o">=</span><span class="n">slicing</span><span class="p">);</span>
 <span class="n">ws</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="kc">True</span><span class="p">;</span>
@@ -1011,7 +1011,7 @@ Processed 1 blocks with function &#39;detect_cells_block&#39;: elapsed time: 0:0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-iullumination_correction: dict
+illumination_correction: dict
                           flatfield: None
                           scaling  : mean
 background_correction   : dict
@@ -1052,8 +1052,8 @@ intensity_detection     : dict
 <h3>Background removal<a class="headerlink" href="#Background-removal" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">background_correction</span></code> : dict or None</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">shape</span></code> : tuple The shape of the structure lement to estimate the background. This should be larger than the typical cell size.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">form</span></code> : str The form of the structur element (e.g. ‘Disk’)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shape</span></code> : tuple The shape of the structure element to estimate the background. This should be larger than the typical cell size.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">form</span></code> : str The form of the structure element (e.g. ‘Disk’)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">save</span></code> : str or None Save the result of this step to the specified file if not None.</p></li>
 </ul>
 </div>
@@ -1061,11 +1061,11 @@ intensity_detection     : dict
 <h3>Equalization<a class="headerlink" href="#Equalization" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">equalization</span></code> : dict or None</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">precentile</span></code> : tuple The lower and upper percentiles used to estimate the equalization. The lower percentile is used for normalization, the upper to limit the maximal boost to a maximal intensity above this percentile.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percentile</span></code> : tuple The lower and upper percentiles used to estimate the equalization. The lower percentile is used for normalization, the upper to limit the maximal boost to a maximal intensity above this percentile.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_value</span></code> : float The maximal intensity value in the equalized image.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">selem</span></code> : tuple The structural element size to estimate the percentiles. Should be larger than the larger vessels.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">spacing</span></code> : tuple The spacing used to move the structural elements. Larger spacings speed up processing but become locally less precise.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">interpolate</span></code> : int The order of the interpoltation used in constructing the full background estimate in case a non-trivial spacing is used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interpolate</span></code> : int The order of the interpolation used in constructing the full background estimate in case a non-trivial spacing is used.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">save</span></code> : str or None Save the result of this step to the specified file if not None.</p></li>
 </ul>
 </div>
@@ -1074,8 +1074,8 @@ intensity_detection     : dict
 <p><code class="docutils literal notranslate"><span class="pre">dog_filter</span></code> : dict or None</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">shape</span></code> : tuple The shape of the filter. This should be near the typical cell size.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code> : tuple or None The std of the inner Gaussian. If None, detemined automatically from shape.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sigma2</span></code> : tuple or None The std of the outer Gaussian. If None, detemined automatically from shape.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code> : tuple or None The std of the inner Gaussian. If None, determined automatically from shape.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma2</span></code> : tuple or None The std of the outer Gaussian. If None, determined automatically from shape.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">save</span></code> : str or None Save the result of this step to the specified file if not None.</p></li>
 </ul>
 </div>
@@ -1083,7 +1083,7 @@ intensity_detection     : dict
 <h3>Maxima detection<a class="headerlink" href="#Maxima-detection" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">maxima_detection</span></code> : dict or None</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">h_max</span></code> : float or None The ’height’for the extended maxima. If None, simple local maxima detection isused.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h_max</span></code> : float or None The ’height’for the extended maxima. If None, simple local maxima detection is used.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">shape</span></code> : tuple The shape of the structural element for extended maxima detection. This should be near the typical cell size.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code> : float or None Only maxima above this threshold are detected. If None, all maxima are detected.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">save</span></code> : str or None Save the result of this step to the specified file if not None.</p></li>
@@ -1093,7 +1093,7 @@ intensity_detection     : dict
 <h3>Shape detection<a class="headerlink" href="#Shape-detection" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">shape_detection</span></code> : dict or None</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code> : float Cell shape is expanded from maxima if pixles are above this threshold and not closer to another maxima.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code> : float Cell shape is expanded from maxima if pixels are above this threshold and not closer to another maxima.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">save</span></code> : str or None Save the result of this step to the specified file if not None.</p></li>
 </ul>
 </div>

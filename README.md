@@ -35,7 +35,7 @@ For experimental protocols also refer to [idisco.info](http:://idisco.info)
 References
 ==========
 
-Cite us if you use the sofware in any form:
+Cite us if you use the software in any form:
 
     @article{kirst2020mapping,
        title={Mapping the fine-scale organization and plasticity of the brain vasculature},

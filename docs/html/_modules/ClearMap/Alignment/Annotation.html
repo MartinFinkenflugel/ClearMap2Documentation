@@ -151,7 +151,7 @@
 <span class="sd"> </span>
 <span class="sd">Notes</span>
 <span class="sd">-----      </span>
-<span class="sd">  - The files containting annotation information is assumed to be in the path </span>
+<span class="sd">  - The files containing annotation information is assumed to be in the path </span>
 <span class="sd">    stored in :const:`atlas_path`, which defaults to the resource path </span>
 <span class="sd">    :const:`ClearMap.Settings.resources_path`.</span>
 <span class="sd">    </span>
@@ -198,7 +198,7 @@
 
 <span class="c1">#TODO: move to settings ?</span>
 <span class="n">atlas_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">resources_path</span><span class="p">,</span> <span class="s1">&#39;Atlas&#39;</span><span class="p">);</span>
-<span class="sd">&quot;&quot;&quot;Default path to atlas infomration.</span>
+<span class="sd">&quot;&quot;&quot;Default path to atlas information.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">default_annotation_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">atlas_path</span><span class="p">,</span> <span class="s1">&#39;ABA_25um_annotation.tif&#39;</span><span class="p">);</span>
@@ -332,7 +332,7 @@
 <span class="sd">    Arguments</span>
 <span class="sd">    ---------</span>
 <span class="sd">    label_file : str</span>
-<span class="sd">      File with label infomration in json format.</span>
+<span class="sd">      File with label information in json format.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">label_file</span><span class="o">=</span><span class="n">label_file</span><span class="p">,</span> <span class="n">extra_label</span><span class="o">=</span><span class="n">extra_label</span><span class="p">,</span> <span class="n">annotation_file</span><span class="o">=</span><span class="n">annotation_file</span><span class="p">);</span>
   
@@ -352,14 +352,14 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">annotation_file</span> <span class="o">=</span> <span class="n">annotation_file</span><span class="p">;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">extra_label</span> <span class="o">=</span> <span class="n">extra_label</span><span class="p">;</span>
     
-    <span class="c1">#initialze label tree    </span>
+    <span class="c1">#initialize label tree    </span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">label_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">dfile</span><span class="p">:</span>
       <span class="n">aba_json</span> <span class="o">=</span> <span class="n">dfile</span><span class="o">.</span><span class="n">read</span><span class="p">();</span>
       <span class="n">dfile</span><span class="o">.</span><span class="n">close</span><span class="p">();</span>
     <span class="n">aba</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">aba_json</span><span class="p">)</span>
 
     <span class="n">root</span> <span class="o">=</span> <span class="n">aba</span><span class="p">[</span><span class="s1">&#39;msg&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialze_tree</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialize_tree</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
 
     <span class="c1">#maxgraph = max(self.get_list(&#39;graph_order&#39;));</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">extra_label</span><span class="p">:</span>
@@ -391,9 +391,9 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">acronyms</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s1">&#39;acronym&#39;</span><span class="p">);</span></div>
   
   
-<div class="viewcode-block" id="Annotation.initialze_tree"><a class="viewcode-back" href="../../../Api/ClearMap.Alignment.Annotation.html#ClearMap.Alignment.Annotation.Annotation.initialze_tree">[docs]</a>  <span class="k">def</span> <span class="nf">initialze_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Annotation.initialize_tree"><a class="viewcode-back" href="../../../Api/ClearMap.Alignment.Annotation.html#ClearMap.Alignment.Annotation.Annotation.initialize_tree">[docs]</a>  <span class="k">def</span> <span class="nf">initialize_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
     <span class="n">label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>  <span class="p">{</span> <span class="n">key</span> <span class="p">:</span> <span class="n">root</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;children&quot;</span><span class="p">]},</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="p">);</span>
-    <span class="n">label</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">initialze_tree</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">label</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;children&#39;</span><span class="p">]];</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">initialize_tree</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">label</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">root</span><span class="p">[</span><span class="s1">&#39;children&#39;</span><span class="p">]];</span>
     <span class="k">return</span> <span class="n">label</span><span class="p">;</span></div>
   
   
@@ -560,7 +560,7 @@
 <span class="c1">### Labeling</span>
 <span class="c1">###############################################################################</span>
 
-<span class="c1">#TODO:use parallel arryay processing and lut routines to speed up? </span>
+<span class="c1">#TODO:use parallel array processing and lut routines to speed up? </span>
 <div class="viewcode-block" id="label_points"><a class="viewcode-back" href="../../../Api/ClearMap.Alignment.Annotation.html#ClearMap.Alignment.Annotation.label_points">[docs]</a><span class="k">def</span> <span class="nf">label_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">annotation_file</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">invalid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
   <span class="sd">&quot;&quot;&quot;Label points according to the annotation in the labeled image file.</span>
 <span class="sd">  </span>
@@ -613,12 +613,12 @@
 <span class="sd">  </span>
 <span class="sd">  Arguments</span>
 <span class="sd">  ---------</span>
-<span class="sd">  lable : array</span>
+<span class="sd">  label : array</span>
 <span class="sd">    List of labels to convert.</span>
 <span class="sd">  key : str</span>
 <span class="sd">    The key corresponding to the label.</span>
 <span class="sd">  value : str</span>
-<span class="sd">    The key to ocnvert the lable to.</span>
+<span class="sd">    The key to convert the label to.</span>
 <span class="sd">  level : nt or None</span>
 <span class="sd">    Convert at this level of the hierarchy. I fNone use full hierarchy.</span>
 <span class="sd">  method : &#39;map&#39; or &#39;dictionary&#39;</span>
@@ -642,7 +642,7 @@
 <span class="sd">  </span>
 <span class="sd">  Arguments</span>
 <span class="sd">  ---------</span>
-<span class="sd">  lable : array</span>
+<span class="sd">  label : array</span>
 <span class="sd">    List of labels to convert.</span>
 <span class="sd">  key : str</span>
 <span class="sd">    The key corresponding to the label.</span>
@@ -673,7 +673,7 @@
 <span class="sd">  weights : array </span>
 <span class="sd">    Optional list of weights for each label.</span>
 <span class="sd">  key : str</span>
-<span class="sd">    The key the lables are given in.</span>
+<span class="sd">    The key the labels are given in.</span>
 <span class="sd">  hierarchical : bool</span>
 <span class="sd">    If True, count all sub-labels.</span>
 <span class="sd">    </span>
@@ -826,7 +826,7 @@
 <span class="sd">    The target directory. If None, use ClearMap resources folder.</span>
 <span class="sd">  postfix : str or None</span>
 <span class="sd">    Use this postfix for the cropped annotation file. If None and automatic </span>
-<span class="sd">    label is choosen.</span>
+<span class="sd">    label is chosen.</span>
 <span class="sd">  annotation_file : str or None</span>
 <span class="sd">    The annotation file to use.</span>
 <span class="sd">  reference_file : str or None</span>
@@ -834,7 +834,7 @@
 <span class="sd">  distance_to_surface_file : str or None</span>
 <span class="sd">    The distance file to use.</span>
 <span class="sd">  overwrite : bool</span>
-<span class="sd">    If True, overwrite exisitng files.</span>
+<span class="sd">    If True, overwrite existing files.</span>
 <span class="sd">    </span>
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
@@ -900,7 +900,7 @@
   
 
 <div class="viewcode-block" id="format_annotation_filename"><a class="viewcode-back" href="../../../Api/ClearMap.Alignment.Annotation.html#ClearMap.Alignment.Annotation.format_annotation_filename">[docs]</a><span class="k">def</span> <span class="nf">format_annotation_filename</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">orientation</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">slicing</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">postfix</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">directory</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Formats the annotation filename given oriantion and slicing.&quot;&quot;&quot;</span> 
+  <span class="sd">&quot;&quot;&quot;Formats the annotation filename given orientation and slicing.&quot;&quot;&quot;</span>
   
   <span class="k">if</span> <span class="n">postfix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">orientation</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">format_orientation</span><span class="p">(</span><span class="n">orientation</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>

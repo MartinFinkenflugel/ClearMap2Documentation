@@ -456,7 +456,7 @@
 <span class="sd">  source : str or Source</span>
 <span class="sd">    The source on diks to load.</span>
 <span class="sd">  slicing : slice, tuple, or None</span>
-<span class="sd">    Optional sublice to read.</span>
+<span class="sd">    Optional subslice to read.</span>
 <span class="sd">  memory : &#39;shared; or None</span>
 <span class="sd">    If &#39;shared&#39;, read into shared memory.</span>
 <span class="sd">  blocks : int or None</span>
@@ -483,7 +483,7 @@
   <span class="k">if</span> <span class="n">location</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The source has not valid location to read from!&#39;</span><span class="p">);</span>  
   <span class="k">if</span> <span class="n">order</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]:</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Cannot read in parallel from non-contigous source!&#39;</span><span class="p">);</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Cannot read in parallel from non-contiguous source!&#39;</span><span class="p">);</span>
     <span class="c1">#TODO: implement parallel reader with strides !</span>
   
   <span class="n">sink</span><span class="p">,</span> <span class="n">sink_buffer</span> <span class="o">=</span> <span class="n">initialize_sink</span><span class="p">(</span><span class="n">sink</span><span class="o">=</span><span class="n">sink</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="n">memory</span><span class="p">,</span> <span class="n">as_1d</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
@@ -562,7 +562,7 @@
   <span class="n">sink_order</span><span class="p">,</span> <span class="n">sink_offset</span> <span class="o">=</span> <span class="n">sink</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="n">sink</span><span class="o">.</span><span class="n">offset</span><span class="p">;</span>
   
   <span class="k">if</span> <span class="n">sink_order</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]:</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Cannot read in parallel from non-contigous source!&#39;</span><span class="p">);</span>  
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Cannot read in parallel from non-contiguous source!&#39;</span><span class="p">);</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">source_order</span> <span class="o">!=</span> <span class="n">sink_order</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Order of source </span><span class="si">%r</span><span class="s1"> and sink </span><span class="si">%r</span><span class="s1"> do not match!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">source_order</span><span class="p">,</span> <span class="n">sink_order</span><span class="p">));</span>    
   
@@ -656,7 +656,7 @@
 <span class="sd">  </span>
 <span class="sd">  Arguments</span>
 <span class="sd">  ---------</span>
-<span class="sd">  processes : int, &#39;seial&#39; or None</span>
+<span class="sd">  processes : int, &#39;serial&#39; or None</span>
 <span class="sd">    The number of processes to use. If None use number of cpus.</span>
 <span class="sd">  verbose : bool</span>
 <span class="sd">    If True, print progress information.</span>
@@ -729,7 +729,7 @@
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
 <span class="sd">  source : Source</span>
-<span class="sd">    The intialized source.</span>
+<span class="sd">    The initialized source.</span>
 <span class="sd">  source_buffer</span>
 <span class="sd">    The initialized source as buffer.</span>
 <span class="sd">  shape : tuple of int</span>
@@ -786,15 +786,15 @@
 <span class="sd">  dtype : dtype</span>
 <span class="sd">    Optional dtype of the sink. If None, inferred from the source.</span>
 <span class="sd">  order : &#39;C&#39;, &#39;F&#39; or None</span>
-<span class="sd">    Optonal order of the sink. If None, inferred from the source.</span>
+<span class="sd">    Optional order of the sink. If None, inferred from the source.</span>
 <span class="sd">  memory : &#39;shared&#39; or None</span>
 <span class="sd">    If &#39;shared&#39; create a shared memory sink.</span>
 <span class="sd">  location : str</span>
 <span class="sd">    Optional location specification of the sink.</span>
 <span class="sd">  source : Source or None</span>
-<span class="sd">    Optional source to infer sink specifictions from.</span>
+<span class="sd">    Optional source to infer sink specifications from.</span>
 <span class="sd">  return_buffer : bool</span>
-<span class="sd">    If True, return alos a buffer compatible with cython memory views. </span>
+<span class="sd">    If True, also return a buffer compatible with cython memory views. </span>
 <span class="sd">  return_shape : bool</span>
 <span class="sd">    If True, also return shape of the sink.</span>
 <span class="sd">  return_strides : bool</span>
@@ -803,7 +803,7 @@
 <span class="sd">  Returns</span>
 <span class="sd">  -------</span>
 <span class="sd">  sink : Source</span>
-<span class="sd">    The intialized sink.</span>
+<span class="sd">    The initialized sink.</span>
 <span class="sd">  buffer : array</span>
 <span class="sd">    Buffer of the sink.</span>
 <span class="sd">  shape : tuple of int</span>
@@ -1116,7 +1116,7 @@
 <span class="c1">#  &quot;&quot;&quot;Finds all indices within a specified kernel region centered at a point&quot;&quot;&quot;</span>
 <span class="c1">#  </span>
 <span class="c1">#  if len(strides) != 3 or len(shape) != 3 or (strides[0] != 1 and strides[2] != 1):</span>
-<span class="c1">#    raise RuntimeError(&#39;only 3d C or F contiguous arrays suported&#39;);</span>
+<span class="c1">#    raise RuntimeError(&#39;only 3d C or F contiguous arrays supported&#39;);</span>
 <span class="c1">#</span>
 <span class="c1">#  if isinstance(mask, int):</span>
 <span class="c1">#    mask = (mask,);</span>

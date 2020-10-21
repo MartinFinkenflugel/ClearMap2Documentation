@@ -89,7 +89,7 @@ Rigid alignment
 In the first step, neighboring tiles are rigidly aligned along the
 z-axis. To speed up this step, a max-intensity projection (MIP) is
 calculated along the axis that connects the two tiles and the alignment
-is performed on the resulting 2d images. While WobblySticher implements
+is performed on the resulting 2d images. While WobblyStitcher implements
 full 3d rigid alignment, we did not find this necessary for our data
 sets in this step and opted for the faster MIP version.
 
@@ -179,7 +179,7 @@ planes via a series of computations:
 
 First, the overlap region for each pair of neighboring and already
 z-aligned tiles is computed. The overlap region is validated via an
-optional validation routine passed to WobblySticher. For the brain
+optional validation routine passed to WobblyStitcher. For the brain
 vasculature we use foreground pixel counting as described above. The
 overlap regions are also preprocessed as a whole using normalization.
 

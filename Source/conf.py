@@ -24,7 +24,7 @@ def setup(app):
   app.add_stylesheet('clearmap_utils.css')
   app.add_stylesheet('clearmap_sidebar.css')
 #  app.add_javascript('clearmap_togglebutton.js')
-#  app.add_javascript('cleatmap_sidebar.js')
+#  app.add_javascript('clearmap_sidebar.js')
   
   #cut title in modules
   from typing import Any, Callable, List

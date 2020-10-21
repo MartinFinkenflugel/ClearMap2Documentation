@@ -409,10 +409,10 @@
   <span class="c1"># find neighbour end points and try to connect to nearest one</span>
   <span class="c1"># if path score good enough add path and remove two endpoints</span>
   <span class="c1"># else try to connect to binarized image</span>
-  <span class="c1"># if path score good enugh connect to closest skeleton point</span>
+  <span class="c1"># if path score good enough connect to closest skeleton point</span>
   <span class="c1"># else not connectable</span>
   
-  <span class="c1">#assumes everything is in fotran order</span>
+  <span class="c1">#assumes everything is in fortran order</span>
   <span class="n">strides</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">strides</span><span class="p">)</span> <span class="o">/</span> <span class="n">data</span><span class="o">.</span><span class="n">itemsize</span><span class="p">;</span>
   <span class="n">shape</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">;</span>
   <span class="c1">#print strides, shape</span>

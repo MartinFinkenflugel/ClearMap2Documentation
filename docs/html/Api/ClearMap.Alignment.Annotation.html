@@ -197,7 +197,7 @@
 <span class="target" id="module-ClearMap.Alignment.Annotation"></span><p>Module to handle label and annotation info from Allen Brain Atlas (v2).</p>
 <p class="rubric">Notes</p>
 <ul class="simple">
-<li><p>The files containting annotation information is assumed to be in the path
+<li><p>The files containing annotation information is assumed to be in the path
 stored in <a class="reference internal" href="#ClearMap.Alignment.Annotation.atlas_path" title="ClearMap.Alignment.Annotation.atlas_path"><code class="xref py py-const docutils literal notranslate"><span class="pre">atlas_path</span></code></a>, which defaults to the resource path
 <a class="reference internal" href="ClearMap.Settings.html#ClearMap.Settings.resources_path" title="ClearMap.Settings.resources_path"><code class="xref py py-const docutils literal notranslate"><span class="pre">ClearMap.Settings.resources_path</span></code></a>.</p></li>
 <li><p>The annotation file is assumed to be ‘annotation_25_full.nrrd’
@@ -261,8 +261,8 @@ via <a class="reference internal" href="#ClearMap.Alignment.Annotation.default_l
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="ClearMap.Alignment.Annotation.Annotation.initialze_tree">
-<code class="sig-name descname">initialze_tree</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">parent=None</em>, <em class="sig-param">level=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ClearMap/Alignment/Annotation.html#Annotation.initialze_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ClearMap.Alignment.Annotation.Annotation.initialze_tree" title="Permalink to this definition">¶</a></dt>
+<dt id="ClearMap.Alignment.Annotation.Annotation.initialize_tree">
+<code class="sig-name descname">initialize_tree</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">parent=None</em>, <em class="sig-param">level=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ClearMap/Alignment/Annotation.html#Annotation.initialize_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ClearMap.Alignment.Annotation.Annotation.initialize_tree" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -351,11 +351,11 @@ via <a class="reference internal" href="#ClearMap.Alignment.Annotation.default_l
 <dd><p>Convert label using the atlas annotation data.</p>
 <p class="rubric">Arguments</p>
 <dl class="simple">
-<dt>lable<span class="classifier">array</span></dt><dd><p>List of labels to convert.</p>
+<dt>label<span class="classifier">array</span></dt><dd><p>List of labels to convert.</p>
 </dd>
 <dt>key<span class="classifier">str</span></dt><dd><p>The key corresponding to the label.</p>
 </dd>
-<dt>value<span class="classifier">str</span></dt><dd><p>The key to ocnvert the lable to.</p>
+<dt>value<span class="classifier">str</span></dt><dd><p>The key to convert the label to.</p>
 </dd>
 <dt>level<span class="classifier">nt or None</span></dt><dd><p>Convert at this level of the hierarchy. I fNone use full hierarchy.</p>
 </dd>
@@ -376,7 +376,7 @@ either can be faster for large data sets.</p>
 <dd><p>Convert label using the atlas annotation colors.</p>
 <p class="rubric">Arguments</p>
 <dl class="simple">
-<dt>lable<span class="classifier">array</span></dt><dd><p>List of labels to convert.</p>
+<dt>label<span class="classifier">array</span></dt><dd><p>List of labels to convert.</p>
 </dd>
 <dt>key<span class="classifier">str</span></dt><dd><p>The key corresponding to the label.</p>
 </dd>
@@ -406,7 +406,7 @@ either can be faster for large data sets.</p>
 </dd>
 <dt>weights<span class="classifier">array</span></dt><dd><p>Optional list of weights for each label.</p>
 </dd>
-<dt>key<span class="classifier">str</span></dt><dd><p>The key the lables are given in.</p>
+<dt>key<span class="classifier">str</span></dt><dd><p>The key the labels are given in.</p>
 </dd>
 <dt>hierarchical<span class="classifier">bool</span></dt><dd><p>If True, count all sub-labels.</p>
 </dd>
@@ -450,7 +450,7 @@ either can be faster for large data sets.</p>
 <dl class="function">
 <dt id="ClearMap.Alignment.Annotation.format_annotation_filename">
 <code class="sig-name descname">format_annotation_filename</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">orientation=None</em>, <em class="sig-param">slicing=None</em>, <em class="sig-param">postfix=None</em>, <em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ClearMap/Alignment/Annotation.html#format_annotation_filename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ClearMap.Alignment.Annotation.format_annotation_filename" title="Permalink to this definition">¶</a></dt>
-<dd><p>Formats the annotation filename given oriantion and slicing.</p>
+<dd><p>Formats the annotation filename given orientation and slicing.</p>
 </dd></dl>
 
 <dl class="function">
@@ -509,7 +509,7 @@ two hemispheres.</p>
 <dt>directory<span class="classifier">str or None</span></dt><dd><p>The target directory. If None, use ClearMap resources folder.</p>
 </dd>
 <dt>postfix<span class="classifier">str or None</span></dt><dd><p>Use this postfix for the cropped annotation file. If None and automatic
-label is choosen.</p>
+label is chosen.</p>
 </dd>
 <dt>annotation_file<span class="classifier">str or None</span></dt><dd><p>The annotation file to use.</p>
 </dd>
@@ -517,7 +517,7 @@ label is choosen.</p>
 </dd>
 <dt>distance_to_surface_file<span class="classifier">str or None</span></dt><dd><p>The distance file to use.</p>
 </dd>
-<dt>overwrite<span class="classifier">bool</span></dt><dd><p>If True, overwrite exisitng files.</p>
+<dt>overwrite<span class="classifier">bool</span></dt><dd><p>If True, overwrite existing files.</p>
 </dd>
 </dl>
 <p class="rubric">Returns</p>
@@ -584,7 +584,7 @@ label is choosen.</p>
 <dl class="data">
 <dt id="ClearMap.Alignment.Annotation.atlas_path">
 <code class="sig-name descname">atlas_path</code><em class="property"> = '/home/ckirst/Programs/ClearMap2/ClearMap/Resources/Atlas'</em><a class="headerlink" href="#ClearMap.Alignment.Annotation.atlas_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Default path to atlas infomration.</p>
+<dd><p>Default path to atlas information.</p>
 </dd></dl>
 
 <dl class="data">

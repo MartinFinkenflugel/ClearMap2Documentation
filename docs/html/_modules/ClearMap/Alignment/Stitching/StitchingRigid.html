@@ -147,7 +147,7 @@
 <span class="sd">StitchingRigid</span>
 <span class="sd">==============</span>
 
-<span class="sd">Stitching module for aligning and stitching data sets ridgidly.</span>
+<span class="sd">Stitching module for aligning and stitching data sets rigidly.</span>
 
 <span class="sd">The module provides base classes and routines for stitching images. The</span>
 <span class="sd">:mod:`~ClearMap.Alignment.Stitching.StichingWobbly` module builds on this </span>
@@ -364,7 +364,7 @@
 <span class="sd">    coordinate : int</span>
 <span class="sd">      The non-local coordinate along the axis.</span>
 <span class="sd">    axis : int</span>
-<span class="sd">      The axis of the coordiante.</span>
+<span class="sd">      The axis of the coordinate.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -382,7 +382,7 @@
 <span class="sd">    local_coordinate : int</span>
 <span class="sd">      The local coordinate along the axis.</span>
 <span class="sd">    axis : int</span>
-<span class="sd">      The axis of the coordiante.</span>
+<span class="sd">      The axis of the coordinate.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -686,12 +686,12 @@
 
 <span class="sd">    Note</span>
 <span class="sd">    ----</span>
-<span class="sd">    Either coordiante or local_coordinate must be given.</span>
+<span class="sd">    Either coordinate or local_coordinate must be given.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="n">local_coordinate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
       <span class="k">if</span> <span class="n">coordinate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Either a coordiante or a base_coordainte needs to be given!&#39;</span><span class="p">);</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Either a coordinate or a base_coordainte needs to be given!&#39;</span><span class="p">);</span>
       <span class="n">local_coordinate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinate_to_local</span><span class="p">(</span><span class="n">coordinate</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">);</span>
     
     <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">local_coordinate</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]:</span>
@@ -849,7 +849,7 @@
 
 
 <span class="k">def</span> <span class="nf">_source_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;Helper to generate a string describing a source with positional infomration.&quot;&quot;&quot;</span>
+  <span class="sd">&quot;&quot;&quot;Helper to generate a string describing a source with positional information.&quot;&quot;&quot;</span>
   <span class="k">try</span><span class="p">:</span>
     <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">name</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
@@ -3503,7 +3503,7 @@
   <span class="n">max_shifts</span> <span class="o">=</span> <span class="n">_format_max_shifts</span><span class="p">(</span><span class="n">max_shifts</span><span class="p">,</span> <span class="n">layout</span><span class="o">.</span><span class="n">ndim</span><span class="p">);</span>
   <span class="n">n_alignments</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">n_alignments</span><span class="p">;</span>
   
-  <span class="n">_align</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">_align_layout_ridgid_mip</span><span class="p">,</span> 
+  <span class="n">_align</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">_align_layout_rigid_mip</span><span class="p">,</span>
                       <span class="n">n_alignments</span><span class="o">=</span><span class="n">n_alignments</span><span class="p">,</span>
                       <span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span> <span class="n">max_shifts</span><span class="o">=</span><span class="n">max_shifts</span><span class="p">,</span> <span class="n">ranges</span><span class="o">=</span><span class="n">ranges</span><span class="p">,</span>
                       <span class="n">clip</span><span class="o">=</span><span class="n">clip</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="n">background</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">);</span>
@@ -3535,7 +3535,7 @@
 
 
 <span class="nd">@ptb</span><span class="o">.</span><span class="n">parallel_traceback</span>
-<span class="k">def</span> <span class="nf">_align_layout_ridgid_mip</span><span class="p">(</span><span class="n">src1</span><span class="p">,</span> <span class="n">src2</span><span class="p">,</span> <span class="n">aid</span><span class="p">,</span> <span class="n">n_alignments</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">max_shifts</span><span class="p">,</span> <span class="n">ranges</span><span class="p">,</span> <span class="n">clip</span><span class="p">,</span> <span class="n">background</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_align_layout_rigid_mip</span><span class="p">(</span><span class="n">src1</span><span class="p">,</span> <span class="n">src2</span><span class="p">,</span> <span class="n">aid</span><span class="p">,</span> <span class="n">n_alignments</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">max_shifts</span><span class="p">,</span> <span class="n">ranges</span><span class="p">,</span> <span class="n">clip</span><span class="p">,</span> <span class="n">background</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
   <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Alignment: aligning </span><span class="si">%r</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">, alignment pair </span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1"> !&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">src1</span><span class="o">.</span><span class="n">tile_position</span><span class="p">,</span> <span class="n">src2</span><span class="o">.</span><span class="n">tile_position</span><span class="p">,</span> <span class="n">aid</span><span class="p">,</span> <span class="n">n_alignments</span><span class="p">));</span>
      
@@ -3637,7 +3637,7 @@
   <span class="n">max_shifts</span> <span class="o">=</span> <span class="n">_format_max_shifts</span><span class="p">(</span><span class="n">max_shifts</span><span class="p">,</span> <span class="n">layout</span><span class="o">.</span><span class="n">ndim</span><span class="p">);</span>
   <span class="n">n_alignments</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">n_alignments</span><span class="p">;</span>
   
-  <span class="n">_align</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">_align_layout_ridgid_mips</span><span class="p">,</span> 
+  <span class="n">_align</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">_align_layout_rigid_mips</span><span class="p">,</span>
                       <span class="n">n_alignments</span><span class="o">=</span><span class="n">n_alignments</span><span class="p">,</span>
                       <span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span> <span class="n">max_shifts</span><span class="o">=</span><span class="n">max_shifts</span><span class="p">,</span> <span class="n">ranges</span><span class="o">=</span><span class="n">ranges</span><span class="p">,</span>
                       <span class="n">clip</span><span class="o">=</span><span class="n">clip</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="n">background</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">);</span>
@@ -3669,7 +3669,7 @@
 
 
 <span class="nd">@ptb</span><span class="o">.</span><span class="n">parallel_traceback</span>
-<span class="k">def</span> <span class="nf">_align_layout_ridgid_mips</span><span class="p">(</span><span class="n">src1</span><span class="p">,</span> <span class="n">src2</span><span class="p">,</span> <span class="n">aid</span><span class="p">,</span> <span class="n">n_alignments</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">max_shifts</span><span class="p">,</span> <span class="n">ranges</span><span class="p">,</span> <span class="n">clip</span><span class="p">,</span> <span class="n">background</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_align_layout_rigid_mips</span><span class="p">(</span><span class="n">src1</span><span class="p">,</span> <span class="n">src2</span><span class="p">,</span> <span class="n">aid</span><span class="p">,</span> <span class="n">n_alignments</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">max_shifts</span><span class="p">,</span> <span class="n">ranges</span><span class="p">,</span> <span class="n">clip</span><span class="p">,</span> <span class="n">background</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
   <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Alignment: aligning </span><span class="si">%r</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">, alignment pair </span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1"> !&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">src1</span><span class="o">.</span><span class="n">tile_position</span><span class="p">,</span> <span class="n">src2</span><span class="o">.</span><span class="n">tile_position</span><span class="p">,</span> <span class="n">aid</span><span class="p">,</span> <span class="n">n_alignments</span><span class="p">));</span>
   

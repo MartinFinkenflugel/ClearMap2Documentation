@@ -358,7 +358,7 @@ numpy routines that get very slow for data arrays above 100-500GB of size.</p>
 <dd><p>Initialize parallel array processing.</p>
 <p class="rubric">Arguments</p>
 <dl class="simple">
-<dt>processes<span class="classifier">int, ‘seial’ or None</span></dt><dd><p>The number of processes to use. If None use number of cpus.</p>
+<dt>processes<span class="classifier">int, ‘serial’ or None</span></dt><dd><p>The number of processes to use. If None use number of cpus.</p>
 </dd>
 <dt>verbose<span class="classifier">bool</span></dt><dd><p>If True, print progress information.</p>
 </dd>
@@ -386,15 +386,15 @@ numpy routines that get very slow for data arrays above 100-500GB of size.</p>
 </dd>
 <dt>dtype<span class="classifier">dtype</span></dt><dd><p>Optional dtype of the sink. If None, inferred from the source.</p>
 </dd>
-<dt>order<span class="classifier">‘C’, ‘F’ or None</span></dt><dd><p>Optonal order of the sink. If None, inferred from the source.</p>
+<dt>order<span class="classifier">‘C’, ‘F’ or None</span></dt><dd><p>Optional order of the sink. If None, inferred from the source.</p>
 </dd>
 <dt>memory<span class="classifier">‘shared’ or None</span></dt><dd><p>If ‘shared’ create a shared memory sink.</p>
 </dd>
 <dt>location<span class="classifier">str</span></dt><dd><p>Optional location specification of the sink.</p>
 </dd>
-<dt>source<span class="classifier">Source or None</span></dt><dd><p>Optional source to infer sink specifictions from.</p>
+<dt>source<span class="classifier">Source or None</span></dt><dd><p>Optional source to infer sink specifications from.</p>
 </dd>
-<dt>return_buffer<span class="classifier">bool</span></dt><dd><p>If True, return alos a buffer compatible with cython memory views.</p>
+<dt>return_buffer<span class="classifier">bool</span></dt><dd><p>If True, also return a buffer compatible with cython memory views.</p>
 </dd>
 <dt>return_shape<span class="classifier">bool</span></dt><dd><p>If True, also return shape of the sink.</p>
 </dd>
@@ -403,7 +403,7 @@ numpy routines that get very slow for data arrays above 100-500GB of size.</p>
 </dl>
 <p class="rubric">Returns</p>
 <dl class="simple">
-<dt>sink<span class="classifier">Source</span></dt><dd><p>The intialized sink.</p>
+<dt>sink<span class="classifier">Source</span></dt><dd><p>The initialized sink.</p>
 </dd>
 <dt>buffer<span class="classifier">array</span></dt><dd><p>Buffer of the sink.</p>
 </dd>
@@ -433,7 +433,7 @@ numpy routines that get very slow for data arrays above 100-500GB of size.</p>
 </dl>
 <p class="rubric">Returns</p>
 <dl class="simple">
-<dt>source<span class="classifier">Source</span></dt><dd><p>The intialized source.</p>
+<dt>source<span class="classifier">Source</span></dt><dd><p>The initialized source.</p>
 </dd>
 <dt>source_buffer</dt><dd><p>The initialized source as buffer.</p>
 </dd>
@@ -476,7 +476,7 @@ numpy routines that get very slow for data arrays above 100-500GB of size.</p>
 <dl class="simple">
 <dt>source<span class="classifier">str or Source</span></dt><dd><p>The source on diks to load.</p>
 </dd>
-<dt>slicing<span class="classifier">slice, tuple, or None</span></dt><dd><p>Optional sublice to read.</p>
+<dt>slicing<span class="classifier">slice, tuple, or None</span></dt><dd><p>Optional subslice to read.</p>
 </dd>
 <dt>memory<span class="classifier">‘shared; or None</span></dt><dd><p>If ‘shared’, read into shared memory.</p>
 </dd>

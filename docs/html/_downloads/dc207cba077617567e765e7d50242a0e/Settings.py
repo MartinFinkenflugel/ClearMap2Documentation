@@ -76,7 +76,7 @@ tera_stitcher_path = None;
 
 Note
 ----
-  `TeraSticher Webpage <http://abria.github.io/TeraStitcher/>`_
+  `TeraStitcher Webpage <http://abria.github.io/TeraStitcher/>`_
 """
 
 imagej_path = None; # '/usr/local/Fiji.app';

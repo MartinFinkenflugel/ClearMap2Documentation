@@ -216,7 +216,7 @@
 <td><p>This sub-package provides specialized image processing pipelines:</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="ClearMap.ImageProcessing.Filter.html#module-ClearMap.ImageProcessing.Filter" title="ClearMap.ImageProcessing.Filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ClearMap.ImageProcessing.Filter</span></code></a></p></td>
-<td><p>This sub-package provides various volumetric filter kernels and structure elments</p></td>
+<td><p>This sub-package provides various volumetric filter kernels and structure elements</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="ClearMap.ImageProcessing.GreyReconstruction.html#module-ClearMap.ImageProcessing.GreyReconstruction" title="ClearMap.ImageProcessing.GreyReconstruction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ClearMap.ImageProcessing.GreyReconstruction</span></code></a></p></td>
 <td><p>This morphological reconstruction routine was adapted from <a class="reference external" href="http://www.cellprofiler.org">CellProfiler</a>.</p></td>
@@ -231,7 +231,7 @@
 <td><p>Module provides functions to calculate local data and statistics of an image and apply a function to those.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="ClearMap.ImageProcessing.MachineLearning.html#module-ClearMap.ImageProcessing.MachineLearning" title="ClearMap.ImageProcessing.MachineLearning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ClearMap.ImageProcessing.MachineLearning</span></code></a></p></td>
-<td><p>This module containes image processing methods based on machine learning.</p></td>
+<td><p>This module contains image processing methods based on machine learning.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="ClearMap.ImageProcessing.Skeletonization.html#module-ClearMap.ImageProcessing.Skeletonization" title="ClearMap.ImageProcessing.Skeletonization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ClearMap.ImageProcessing.Skeletonization</span></code></a></p></td>
 <td><p>This sub-package provides skeletonization routines for 3d image data of TB size.</p></td>
@@ -251,7 +251,7 @@
 <p>This part of the <em>ClearMap</em> toolbox is designed in a modular way to allow for
 fast and flexible extension and addition of specific image processing
 algorithms.</p>
-<p>While most psrts contain lower level image processing methods, more specialized
+<p>While most parts contain lower level image processing methods, more specialized
 routines that combine the basic routines can be found in
 :mod”<cite>ClearMap.ImageProcessing.Experts</cite>.</p>
 <div class="section" id="parallel-image-processing">
@@ -259,12 +259,12 @@ routines that combine the basic routines can be found in
 <p>For large volumetric image data sets from e.g. light sheet microscopy
 parallel processing is essential to speed up calculations.</p>
 <p>In this toolbox the image processing is parallelized in two different
-ways depending on how the algorithms parallelzie.</p>
+ways depending on how the algorithms parallelize.</p>
 <blockquote>
 <div><ul>
 <li><p>Most routines allow to split volumetric data into several blocks,
 typically in z-direction. Because  image processing steps are often
-non-local but still only incorporate a certan range, blocks are created
+non-local but still only incorporate a certain range, blocks are created
 with overlaps and the results rejoined accordingly to minimize boundary
 effects.</p>
 <p>Parallel block processing is handled via the
@@ -272,7 +272,7 @@ effects.</p>
 </li>
 <li><p>Full parallelization using memory mapping and parallel implementations via
 cython. The :mod:~ClearMap.ImageProcessing.Skeletonization` algorithm is
-an example block processing is not feasable in this situation.</p></li>
+an example block processing is not feasible in this situation.</p></li>
 </ul>
 </div></blockquote>
 </div>
