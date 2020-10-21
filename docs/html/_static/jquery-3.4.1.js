@@ -678,7 +678,7 @@ var i,
 			return ch.slice( 0, -1 ) + "\\" + ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
 		}
 
-		// Other potentialy-special ASCII characters get backslash-escaped
+		// Other potentially-special ASCII characters get backslash-escaped
 		return "\\" + ch;
 	},
 
@@ -6427,7 +6427,7 @@ function vendorPropName( name ) {
 	}
 }
 
-// Return a potentialy-mapped jQuery.cssProps or vendor prefixed property
+// Return a potentially-mapped jQuery.cssProps or vendor prefixed property
 function finalPropName( name ) {
 	var final = jQuery.cssProps[ name ] || vendorProps[ name ];
 
